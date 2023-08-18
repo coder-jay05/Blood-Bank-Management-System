@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BloodBankDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BloodTbl">
+    <Key>
+      <PropertyRef Name="BGroup" />
+    </Key>
+    <Property Name="BGroup" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="BStock" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BloodBankDb.dbo.PtranhistoryTbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PtranhistoryTbl">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Pname" />
+      <PropertyRef Name="Bgroup" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Bgroup" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="DNum" />
+    </Key>
+    <Property Name="DNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DAge" Type="int" Nullable="false" />
+    <Property Name="DGender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DBGroup" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransferTbl">
+    <Key>
+      <PropertyRef Name="TNum" />
+    </Key>
+    <Property Name="TNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BGroup" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BloodBankDbModelStoreContainer">
+    <EntitySet Name="BloodTbl" EntityType="Self.BloodTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransferTbl" EntityType="Self.TransferTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PtranhistoryTbl" EntityType="Self.PtranhistoryTbl" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PtranhistoryTbl].[id] AS [id], 
+    [PtranhistoryTbl].[Pname] AS [Pname], 
+    [PtranhistoryTbl].[Bgroup] AS [Bgroup]
+    FROM [dbo].[PtranhistoryTbl] AS [PtranhistoryTbl]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

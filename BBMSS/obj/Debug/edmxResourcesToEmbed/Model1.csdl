@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BloodBankDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BloodTbl">
+    <Key>
+      <PropertyRef Name="BGroup" />
+    </Key>
+    <Property Name="BGroup" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BStock" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="DNum" />
+    </Key>
+    <Property Name="DNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DAge" Type="Int32" Nullable="false" />
+    <Property Name="DGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DBGroup" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransferTbl">
+    <Key>
+      <PropertyRef Name="TNum" />
+    </Key>
+    <Property Name="TNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PtranhistoryTbl">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Pname" />
+      <PropertyRef Name="Bgroup" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Pname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Bgroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BloodBankDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BloodTbls" EntityType="Self.BloodTbl" />
+    <EntitySet Name="Tables" EntityType="Self.Table" />
+    <EntitySet Name="TransferTbls" EntityType="Self.TransferTbl" />
+    <EntitySet Name="PtranhistoryTbls" EntityType="Self.PtranhistoryTbl" />
+  </EntityContainer>
+</Schema>

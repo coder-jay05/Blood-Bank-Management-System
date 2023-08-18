@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BloodBankDbModelStoreContainer" CdmEntityContainer="BloodBankDbEntities">
+    <EntitySetMapping Name="BloodTbls">
+      <EntityTypeMapping TypeName="BloodBankDbModel.BloodTbl">
+        <MappingFragment StoreEntitySet="BloodTbl">
+          <ScalarProperty Name="BGroup" ColumnName="BGroup" />
+          <ScalarProperty Name="BStock" ColumnName="BStock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="BloodBankDbModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="DNum" ColumnName="DNum" />
+          <ScalarProperty Name="DName" ColumnName="DName" />
+          <ScalarProperty Name="DAge" ColumnName="DAge" />
+          <ScalarProperty Name="DGender" ColumnName="DGender" />
+          <ScalarProperty Name="DPhone" ColumnName="DPhone" />
+          <ScalarProperty Name="DAddress" ColumnName="DAddress" />
+          <ScalarProperty Name="DBGroup" ColumnName="DBGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransferTbls">
+      <EntityTypeMapping TypeName="BloodBankDbModel.TransferTbl">
+        <MappingFragment StoreEntitySet="TransferTbl">
+          <ScalarProperty Name="TNum" ColumnName="TNum" />
+          <ScalarProperty Name="PName" ColumnName="PName" />
+          <ScalarProperty Name="BGroup" ColumnName="BGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PtranhistoryTbls">
+      <EntityTypeMapping TypeName="BloodBankDbModel.PtranhistoryTbl">
+        <MappingFragment StoreEntitySet="PtranhistoryTbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Pname" ColumnName="Pname" />
+          <ScalarProperty Name="Bgroup" ColumnName="Bgroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
